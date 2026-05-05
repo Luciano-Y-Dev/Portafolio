@@ -1,25 +1,4 @@
 ---
-interface Props {
-  contacts: {
-    label: string;
-    value: string;
-    href: string;
-  }[];
-}
-
-const {
-  contacts = [
-    {
-      label: "Email",
-      value: "Lucianoyanesmart@gmail.com",
-    },
-    {
-      label: "GitHub",
-      value: "github.com/Luciano-Y-Dev",
-      href: "https://github.com/Luciano-Y-Dev",
-    },
-  ],
-} = Astro.props;
 ---
 
 <section
@@ -27,36 +6,48 @@ const {
   class="min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-20"
 >
   <h2
+    data-i18contact="title"
     class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tighter italic uppercase text-center"
   >
     Contacto
   </h2>
 
   <p
+    data-i18contact="subtitle"
     class="text-sm sm:text-base md:text-lg text-slate-400 mb-8 text-center font-['Roboto_Mono']"
   >
     ¿Interesado en trabajar juntos? Contáctame
   </p>
 
   <div
-    class="w-full max-w-2xl bg-slate-900/50 border border-slate-800 rounded-2xl p-6 sm:p-8"
+    class="w-full max-w-2xl bg-slate-900/50 border border-slate-800 rounded-2xl p-4 sm:p-8"
   >
-    <div class="space-y-4">
-      {
-        contacts.map((contact) => (
-          <a
-            href={contact.href}
-            class="flex items-center justify-between p-4 bg-white/5 rounded-xl border border-white/5 hover:border-[#75A0B4] transition-all group"
-          >
-            <span class="text-sm text-slate-400 uppercase tracking-wider">
-              {contact.label}
-            </span>
-            <span class="text-white font-['Roboto_Mono'] group-hover:text-[#75A0B4] transition-colors">
-              {contact.value}
-            </span>
-          </a>
-        ))
-      }
+    <div class="space-y-3 sm:space-y-4">
+      <a
+        href="mailto:Lucianoyanesmart@gmail.com"
+        class="flex items-center justify-between p-3 sm:p-4 bg-white/5 rounded-xl border border-white/5 hover:border-[#75A0B4] transition-all group"
+      >
+        <span data-i18contact-label="email" class="text-xs sm:text-sm text-slate-400 uppercase tracking-wider">
+          Email
+        </span>
+        <span class="text-white text-sm font-['Roboto_Mono'] group-hover:text-[#75A0B4] transition-colors truncate max-w-[180px] sm:max-w-none">
+          Lucianoyanesmart@gmail.com
+        </span>
+      </a>
+      
+      <a
+        href="https://github.com/Luciano-Y-Dev"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center justify-between p-3 sm:p-4 bg-white/5 rounded-xl border border-white/5 hover:border-[#75A0B4] transition-all group"
+      >
+        <span data-i18contact-label="github" class="text-xs sm:text-sm text-slate-400 uppercase tracking-wider">
+          GitHub
+        </span>
+        <span class="text-white text-sm font-['Roboto_Mono'] group-hover:text-[#75A0B4] transition-colors truncate max-w-[180px] sm:max-w-none">
+          github.com/Luciano-Y-Dev
+        </span>
+      </a>
     </div>
   </div>
 </section>

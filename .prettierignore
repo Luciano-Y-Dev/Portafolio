@@ -1,0 +1,9 @@
+node_modules
+dist
+.astro
+*.ico
+*.png
+*.svg
+*.jpg
+*.jpeg
+*.gif

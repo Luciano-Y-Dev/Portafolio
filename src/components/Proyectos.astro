@@ -1,14 +1,57 @@
 ---
 import Card from "./Proyecto-card.astro";
-import { projects } from "../Datos/proyectos.js";
 ---
 
 <section id="proyectos" class="max-w-6xl mx-auto px-6 py-20">
-  <h2 class="text-4xl md:text-6xl font-bold text-white mb-12 italic uppercase tracking-tighter">
+  <h2 data-i18projects="title" class="text-4xl md:text-6xl font-bold text-white mb-12 italic uppercase tracking-tighter">
     Proyectos
   </h2>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    {projects.map((project) => <Card {...project} />)}
+  <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
   </div>
 </section>
+
+<script>
+  import { projectsData, translations } from "../i18/translations.js";
+
+  function renderProjects(lang) {
+    const projects = projectsData[lang];
+    const t = translations[lang];
+    const grid = document.getElementById("projects-grid");
+    if (!grid) return;
+
+    grid.innerHTML = projects.map(project => `
+      <article class="project-card group relative bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-[#75A0B4] transition-all">
+        <div class="relative h-40 sm:h-48 w-full">
+          <img src="${project.image}" alt="${project.title}" class="w-full h-full object-cover" />
+          <div class="absolute inset-0 bg-linear-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
+        </div>
+        <div class="p-4 sm:p-6">
+          <h3 class="text-lg sm:text-xl font-bold text-white mb-2">${project.title}</h3>
+          <p class="project-desc text-slate-400 text-sm mb-3 sm:mb-4 leading-relaxed font-['Roboto_Mono']">${project.description}</p>
+          <div class="flex flex-wrap gap-2 mb-3 sm:mb-4">
+            ${project.tags.map(tag => `<span class="project-tag text-[10px] uppercase tracking-wider bg-slate-800 text-[#75A0B4] px-2 py-1 rounded">${tag}</span>`).join('')}
+          </div>
+          <a href="${project.link}" class="inline-flex items-center gap-2 text-white text-sm font-bold py-2 px-1 -ml-1 rounded hover:bg-white/5 transition-colors">
+            <span>${t.projects.viewProject}</span> <span class="text-[#75A0B4]">→</span>
+          </a>
+        </div>
+      </article>
+    `).join('');
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('lang') || 'es';
+    renderProjects(savedLang);
+  });
+
+  window.addEventListener('lang-changed', (e) => {
+    renderProjects(e.detail.lang);
+  });
+
+  const originalSetLang = window.setLang;
+  window.setLang = function(lang) {
+    originalSetLang(lang);
+    renderProjects(lang);
+  };
+</script>
