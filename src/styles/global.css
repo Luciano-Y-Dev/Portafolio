@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+.title {
+  height: 90vh;
+  background: #000;
+}

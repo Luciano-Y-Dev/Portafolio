@@ -1,0 +1,14 @@
+---
+import Card from "./Proyecto-card.astro";
+import { projects } from "../Datos/proyectos.js";
+---
+
+<section id="proyectos" class="max-w-6xl mx-auto px-6 py-20">
+  <h2 class="text-4xl md:text-6xl font-bold text-white mb-12 italic uppercase tracking-tighter">
+    Proyectos
+  </h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {projects.map((project) => <Card {...project} />)}
+  </div>
+</section>
