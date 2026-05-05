@@ -3,42 +3,61 @@ import "../styles/global.css";
 import Navbar from "../components/Navbar.astro";
 ---
 
-<!doctype html lang="es" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/x-icon" href="/Black-Hole.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <meta
-      name="description"
-      content="Portafolio de Luciano Yanes - Desarrollador Full Stack"
-    />
-    <meta name="author" content="Luciano Yanes" />
-    <meta property="og:title" content="Portafolio | Luciano Yanes" />
-    <meta
-      property="og:description"
-      content="Portafolio de Luciano Yanes - Desarrollador Full Stack"
-    />
-    <meta property="og:type" content="website" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
-      rel="stylesheet"
-    />
-    <title>Portafolio | Luciano Yanes</title>
-  </head>
-  <body class="bg-linear-to-b from-[#00262d] to-[#111324] font-['Silkscreen']">
-    <Navbar />
-    <slot />
-  </body>
-</html>
+<!doctype html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" type="image/x-icon" href="/Black-Hole.webp" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/Black-Hole.webp" />
+  <link rel="apple-touch-icon" href="/Black-Hole.webp" />
+  <meta name="generator" content={Astro.generator} />
+  <meta name="theme-color" content="#0f101f" />
+  <meta name="robots" content="index, follow" />
+  <meta
+    name="description"
+    content="Portafolio de Luciano Yanes - Desarrollador Full Stack especializado en Python y Data Science"
+  />
+  <meta name="author" content="Luciano Yanes" />
+
+  <meta property="og:title" content="Portafolio | Luciano Yanes" />
+  <meta
+    property="og:description"
+    content="Desarrollador Full Stack especializado en Python y Data Science"
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://portafolio-psi-green-39.vercel.app" />
+  <meta property="og:image" content="https://portafolio-psi-green-39.vercel.app/og-image.webp" />
+  <meta property="og:site_name" content="Portafolio Luciano Yanes" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Portafolio | Luciano Yanes" />
+  <meta
+    name="twitter:description"
+    content="Desarrollador Full Stack especializado en Python y Data Science"
+  />
+  <meta name="twitter:image" content="https://portafolio-psi-green-39.vercel.app/og-image.webp" />
+
+  <link rel="preload" href="/Dev-logo2.webp" as="image" />
+  <link rel="preload" href="/Black-Hole.webp" as="image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+    rel="stylesheet"
+  />
+  <title>Portafolio | Luciano Yanes</title>
+</head>
+<body class="bg-linear-to-b from-[#00262d] to-[#111324] font-['Silkscreen']">
+  <Navbar />
+  <slot />
+</body>
 
 <style is:global>
   html,
